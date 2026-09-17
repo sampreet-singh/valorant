@@ -24,14 +24,24 @@
     "url": "https://github.com/sampreet-singh"
   },
   "type": "module",
-  "main": "index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
-    "build": "tsc",
-    "start": "tsc --watch",
+    "build": "tsdown",
+    "start": "tsdown --watch",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^22.20.3",
+    "tsdown": "^0.23.0",
     "typescript": "^7.0.2"
   }
 }
